@@ -1,0 +1,3 @@
+[submodule "hustreport"]
+	path = hustreport
+	url = git@github.com:michael911009/hustreport.git
