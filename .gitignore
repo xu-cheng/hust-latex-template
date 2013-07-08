@@ -32,12 +32,6 @@
 *.xdy
 *.tdo
 
-itecreport/*.cls
-itecreport/*.tex
-itecreport/*.bib
-itecreport/*.eps
-itecreport/*.md
-
 # For Sublime Text
 *.sublime-project
 *.sublime-workspace
