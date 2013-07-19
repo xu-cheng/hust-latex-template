@@ -1,24 +1,24 @@
 hust-latex-template
 ===================
 
->   中文版[点击这里](https://github.com/michael911009/hust-latex-template/blob/master/README.zh-cn.md)。
+>   To see English version, [click me](https://github.com/michael911009/hust-latex-template/blob/master/README.md).
 
-A Collection of Unofficial LaTeX Templates for [Huazhong University of Science and Technology](http://www.hust.edu.cn). These templates are distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+[华中科技大学](http://www.hust.edu.cn) **非官方** LaTeX模板。这些模板为个人开发，如果因为使用这些模板蒙受了任何经济、学术上的损失，作者将不承担任何责任。
 
-If these templates are useful for you, you might want to buy me a cup of coffee to keep me fresh. Thanks! :)
+如果您觉得这些模板对您有所帮助，您可以请我喝杯咖啡让我保持清醒。谢谢！:)
 
 [![Buy me a cup of coffee via PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=xucheng@me.com&lc=US&item_name=Donate%20this%20project&item_number=hust-latex-template&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHostedGuest)
 
-## Download
+## 下载
 
-You can download this project using command below:
+你可以使用如下命令下载：
 ```
 git clone --recursive https://github.com/michael911009/hust-latex-template.git
 ```
 
-Or if you prefer, you can download these templates separately:
+或者分开下载各个模板：
 
-| Template   | Download                                          | Document                         | Example                                      |
+| 模板   | 下载                                          | 文档                         | 示例                                      |
 | ---------- | ------------------------------------------------- | -------------------------------- | -------------------------------------------- |
 | hustthesis | [.zip][hustthesis-zip] &#124; [.tar.gz][hustthesis-tar] | [hustthesis.pdf][hustthesis-doc] | [hustthesis-zh-example.pdf][hustthesis-zh-example] &#124; [hustthesis-en-example.pdf][hustthesis-en-example] |
 | hustreport | [.zip][hustreport-zip] &#124; [.tar.gz][hustreport-tar] | [hustreport.pdf][hustreport-doc] | [hustreport-zh-example.pdf][hustreport-zh-example] &#124; [hustreport-en-example.pdf][hustreport-en-example] |
@@ -39,9 +39,9 @@ Or if you prefer, you can download these templates separately:
  [hustreport-en-example]: https://raw.github.com/michael911009/hustreport/master/hustreport/hustreport-en-example.pdf
  [hustbeamer-example]: https://raw.github.com/michael911009/hustbeamer/master/hustbeamer/hustbeamer-example.pdf
 
-## License
+## 开源协议
 
-LPPL v1.3 is chosen to be the license of the project. Use as you desire.
+本项目使用LPPL v1.3协议，请任意使用。
 ```
 Copyright (C) 2013 by Xu Cheng <xucheng@me.com>
 
