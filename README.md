@@ -17,10 +17,10 @@ git clone --recursive https://github.com/michael911009/hust-latex-template.git
 Or if you prefer, you can download these templates separately:
 
 | Template   | Download                                          | Document                         | Example                                      |
-| ---------- | ------------------------------------------------- | -------------------------------- | :------------------------------------------- |
-| hustthesis | [.zip][hustthesis-zip], [.tar.gz][hustthesis-tar] | [hustthesis.pdf][hustthesis-doc] | [hustthesis-zh-example.pdf][hustthesis-zh-example], [hustthesis-en-example.pdf][hustthesis-en-example] |
-| hustreport | [.zip][hustreport-zip], [.tar.gz][hustreport-tar] | [hustreport.pdf][hustreport-doc] | [hustreport-zh-example.pdf][hustreport-zh-example], [hustreport-en-example.pdf][hustreport-en-example] |
-| hustbeamer | [.zip][hustbeamer-zip], [.tar.gz][hustbeamer-tar] | [hustbeamer.pdf][hustbeamer-doc] | [hustbeamer-example.pdf][hustbeamer-example] |
+| ---------- | ------------------------------------------------- | -------------------------------- | -------------------------------------------- |
+| hustthesis | [.zip][hustthesis-zip] &#124; [.tar.gz][hustthesis-tar] | [hustthesis.pdf][hustthesis-doc] | [hustthesis-zh-example.pdf][hustthesis-zh-example] &#124; [hustthesis-en-example.pdf][hustthesis-en-example] |
+| hustreport | [.zip][hustreport-zip] &#124; [.tar.gz][hustreport-tar] | [hustreport.pdf][hustreport-doc] | [hustreport-zh-example.pdf][hustreport-zh-example] &#124; [hustreport-en-example.pdf][hustreport-en-example] |
+| hustbeamer | [.zip][hustbeamer-zip] &#124; [.tar.gz][hustbeamer-tar] | [hustbeamer.pdf][hustbeamer-doc] | [hustbeamer-example.pdf][hustbeamer-example] |
 
  [hustthesis-zip]: https://github.com/michael911009/hustthesis/zipball/master
  [hustthesis-tar]: https://github.com/michael911009/hustthesis/tarball/master
