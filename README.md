@@ -1,7 +1,7 @@
 hust-latex-template
 ===================
 
->   中文版[点击这里](https://github.com/michael911009/hust-latex-template/blob/master/README.zh-cn.md)。
+>   中文版[点击这里](https://github.com/xu-cheng/hust-latex-template/blob/master/README.zh-cn.md)。
 
 A Collection of Unofficial LaTeX Templates for [Huazhong University of Science and Technology](http://www.hust.edu.cn). These templates are distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
@@ -13,7 +13,7 @@ If these templates are useful for you, you might want to buy me a cup of coffee 
 
 You can download this project using command below:
 ```
-git clone --recursive https://github.com/michael911009/hust-latex-template.git
+git clone --recursive https://github.com/xu-cheng/hust-latex-template.git
 ```
 
 Or if you prefer, you can download these templates separately:
@@ -24,20 +24,20 @@ Or if you prefer, you can download these templates separately:
 | hustreport | [.zip][hustreport-zip] &#124; [.tar.gz][hustreport-tar] | [hustreport.pdf][hustreport-doc] | [hustreport-zh-example.pdf][hustreport-zh-example] &#124; [hustreport-en-example.pdf][hustreport-en-example] |
 | hustbeamer | [.zip][hustbeamer-zip] &#124; [.tar.gz][hustbeamer-tar] | [hustbeamer.pdf][hustbeamer-doc] | [hustbeamer-example.pdf][hustbeamer-example] |
 
- [hustthesis-zip]: https://github.com/michael911009/hustthesis/zipball/master
- [hustthesis-tar]: https://github.com/michael911009/hustthesis/tarball/master
- [hustreport-zip]: https://github.com/michael911009/hustreport/zipball/master
- [hustreport-tar]: https://github.com/michael911009/hustreport/tarball/master
- [hustbeamer-zip]: https://github.com/michael911009/hustbeamer/zipball/master
- [hustbeamer-tar]: https://github.com/michael911009/hustbeamer/tarball/master
- [hustthesis-doc]: https://raw.github.com/michael911009/hustthesis/master/hustthesis/hustthesis.pdf
- [hustreport-doc]: https://raw.github.com/michael911009/hustreport/master/hustreport/hustreport.pdf
- [hustbeamer-doc]: https://raw.github.com/michael911009/hustbeamer/master/hustbeamer/hustbeamer.pdf
- [hustthesis-zh-example]: https://raw.github.com/michael911009/hustthesis/master/hustthesis/hustthesis-zh-example.pdf
- [hustthesis-en-example]: https://raw.github.com/michael911009/hustthesis/master/hustthesis/hustthesis-en-example.pdf
- [hustreport-zh-example]: https://raw.github.com/michael911009/hustreport/master/hustreport/hustreport-zh-example.pdf
- [hustreport-en-example]: https://raw.github.com/michael911009/hustreport/master/hustreport/hustreport-en-example.pdf
- [hustbeamer-example]: https://raw.github.com/michael911009/hustbeamer/master/hustbeamer/hustbeamer-example.pdf
+ [hustthesis-zip]: https://github.com/xu-cheng/hustthesis/zipball/master
+ [hustthesis-tar]: https://github.com/xu-cheng/hustthesis/tarball/master
+ [hustreport-zip]: https://github.com/xu-cheng/hustreport/zipball/master
+ [hustreport-tar]: https://github.com/xu-cheng/hustreport/tarball/master
+ [hustbeamer-zip]: https://github.com/xu-cheng/hustbeamer/zipball/master
+ [hustbeamer-tar]: https://github.com/xu-cheng/hustbeamer/tarball/master
+ [hustthesis-doc]: https://raw.github.com/xu-cheng/hustthesis/master/hustthesis/hustthesis.pdf
+ [hustreport-doc]: https://raw.github.com/xu-cheng/hustreport/master/hustreport/hustreport.pdf
+ [hustbeamer-doc]: https://raw.github.com/xu-cheng/hustbeamer/master/hustbeamer/hustbeamer.pdf
+ [hustthesis-zh-example]: https://raw.github.com/xu-cheng/hustthesis/master/hustthesis/hustthesis-zh-example.pdf
+ [hustthesis-en-example]: https://raw.github.com/xu-cheng/hustthesis/master/hustthesis/hustthesis-en-example.pdf
+ [hustreport-zh-example]: https://raw.github.com/xu-cheng/hustreport/master/hustreport/hustreport-zh-example.pdf
+ [hustreport-en-example]: https://raw.github.com/xu-cheng/hustreport/master/hustreport/hustreport-en-example.pdf
+ [hustbeamer-example]: https://raw.github.com/xu-cheng/hustbeamer/master/hustbeamer/hustbeamer-example.pdf
 
 ## License
 

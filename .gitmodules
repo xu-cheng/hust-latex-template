@@ -1,9 +1,9 @@
 [submodule "hustreport"]
 	path = hustreport
-	url = git@github.com:michael911009/hustreport.git
+	url = git@github.com:xu-cheng/hustreport.git
 [submodule "hustbeamer"]
 	path = hustbeamer
-	url = git@github.com:michael911009/hustbeamer.git
+	url = git@github.com:xu-cheng/hustbeamer.git
 [submodule "hustthesis"]
 	path = hustthesis
-	url = git@github.com:michael911009/hustthesis.git
+	url = git@github.com:xu-cheng/hustthesis.git
