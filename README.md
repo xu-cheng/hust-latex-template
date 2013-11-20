@@ -57,3 +57,6 @@ This work has the LPPL maintenance status `maintained'.
 
 The Current Maintainer of this work is Xu Cheng.
 ```
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/xu-cheng/hust-latex-template/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
