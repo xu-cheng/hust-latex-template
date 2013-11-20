@@ -1,0 +1,364 @@
+
+\documentclass[langauge=chinese]{hustbeamer}
+
+\usepackage{metalogo,tabu}
+\usepackage{tabularx}
+\usepackage{minted}
+\usepackage{framed}
+
+\definecolor{minted_bg}{rgb}{0.95,0.95,0.95}
+\newminted{latex}{bgcolor=minted_bg,frame=lines,fontsize=\footnotesize}
+\newminted{bat}{bgcolor=minted_bg,frame=lines,fontsize=\scriptsize}
+\newminted{make}{bgcolor=minted_bg,frame=lines,fontsize=\tiny}
+
+\graphicspath{ {.}{./fig/} }
+
+\title{\LaTeX{}模板和常用宏包介绍}
+\author{许铖}
+\institute{\email{xucheng@hust.edu.cn}}
+\date{2013}{11}{21}
+
+\begin{document}
+
+\maketitle
+\PrintTOC
+
+\section{模板介绍}
+
+\begin{frame}[fragile]{\secname}{模板地址}
+这些是我制作的模板：
+
+\noindent\url{https://github.com/xu-cheng/hust-latex-template}
+
+\begin{description}
+\footnotesize
+    \item[hustthesis] \url{https://xu-cheng.github.io/hustthesis}
+    \item[hustreport] \url{https://xu-cheng.github.io/hustreport}
+    \item[hustbeamer] \url{https://xu-cheng.github.io/hustbeamer}
+\end{description}
+
+\begin{block}{提醒}
+使用前请阅读模板文档及示例。
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{模板安装}
+
+{\Large 使用模板环境要求：}
+\begin{description}
+    \item[\LaTeX{}环境] 安装最新版本的 TeXLive（推荐）或 MiKTeX，\newline\textbf{不要}使用CTeX。确保所有宏包都更新至最新。
+    \item[字体] 安装如下中文字体：\\
+    \begin{itemize}
+        \item AdobeSongStd-Light
+        \item AdobeKaitiStd-Regular
+        \item AdobeHeitiStd-Regular
+        \item AdobeFangsongStd-Regular
+    \end{itemize}
+\end{description}
+
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{模板安装}
+安装模板使用如下命令：
+\mint[bgcolor=minted_bg]{bash} |make install|
+使用如下命令卸载：
+\mint[bgcolor=minted_bg]{bash} |make uninstall|
+
+对于没有安装Make的Windows用户，安装命令对于如下：
+\mint[bgcolor=minted_bg]{bat} |makewin32.bat install|
+卸载命令如下：
+\mint[bgcolor=minted_bg]{bat} |makewin32.bat uninstall|
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{编译命令}
+
+只能使用\LuaLaTeX{}（推荐）和\XeLaTeX{}编译该模板的文档。\pause
+
+不能使用\LaTeX{}或pdf\LaTeX{}编译。\pause
+
+更不能使用\TeX{}，pdf\TeX{}，\LuaTeX{}或\XeTeX{}编译。\pause
+
+\begin{center}
+\begin{tabular}{cc}
+引擎 & 扩展 \\ \hline
+\textrm{\TeX} & \textrm{\LaTeX} \\
+\textrm{pdf\TeX} & \textrm{pdf\LaTeX} \\
+\textrm{\XeTeX} & \textrm{\XeLaTeX} \\
+\textrm{\LuaTeX} & \textrm{\LuaLaTeX} 
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{模板使用}
+
+在源文件开头处选择加载文档类型，即可使用本模板，如：
+
+\begin{latexcode}
+\documentclass[options..]{hustthesis}
+\documentclass[options..]{hustreport}
+\documentclass[options..]{hustbeamer}
+\end{latexcode}
+
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{模板使用}
+
+加载模板时，可用选项如下：\\[1.2ex]
+
+\begin{tabularx}{.8\textwidth}{|l|X|}
+\hline
+\multicolumn{1}{|c|}{\textbf{模板}} & \multicolumn{1}{c|}{\textbf{可用选项}} \\ \hline
+hustthesis & langauge,format,degree \\ \hline
+hustreport & langauge,format,category \\ \hline
+hustbeamer & langauge \\ \hline
+\end{tabularx}
+
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{模板使用示例}
+\begin{latexcode*}{fontsize=\tiny}
+\documentclass[degree=phd,language=chinese]{hustthesis}
+
+\stuno{你的学号}
+\schoolcode{10487}
+\title{中文标题}{英文标题}
+\author{作者名}{作者名拼音}
+\major{专业中文}{专业英文}
+\supervisor{指导老师中文}{指导老师英文}
+\date{2013}{7}{1} % 答辩日期
+
+\zhabstract{中文摘要}
+\zhkeywords{中文关键字}
+\enabstract{英文摘要}
+\enkeywords{英文关键字}
+\end{latexcode*}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{模板使用示例}
+\begin{latexcode*}{fontsize=\tiny}
+\begin{document}
+\frontmatter
+\maketitle
+\makeabstract
+\tableofcontents
+\listoffigures
+\listoftables
+
+\mainmatter
+%% 正文
+
+\backmatter
+\begin{ack}
+%% 致谢
+\end{ack}
+\bibliography{参考文献.bib文件}
+\appendix
+\begin{publications}
+%% 发表过的论文列表
+\end{publications}
+%% 附录剩余部分
+\end{document}
+\end{latexcode*}
+\end{frame}
+
+\section{常用宏包介绍}
+
+\begin{frame}{\secname}{\textrm{\LaTeX}资料}
+\begin{enumerate}
+    \item 《一份不太简短的\textrm{\LaTeXe}介绍》\mint{bash}|texdoc lshort-zh|
+    \item \url{http://en.wikibooks.org/wiki/LaTeX/}
+    \item \url{http://tex.stackexchange.com/} 和 Google
+\end{enumerate}
+\pause
+\begin{block}{texdoc命令}
+    texdoc命令用于查看\textrm{\LaTeX}文档，使用方法如下：\\*
+    \hspace{.8em}\texttt{texdoc\hspace{.8em}\emph{<package name>}}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{中文字体 --- luatexja}
+\begin{description}
+    \item[宏包] luatexja
+    \item[文档] \mint{bash}|texdoc luatexja-zh| 
+    \item[注释] \LuaTeX{}下的宏包。如果你使用\XeLaTeX{}，有类似宏包xeCJK。\pause
+    \item[示例] \hfill\\
+\begin{latexcode*}{fontsize=\tiny}
+\usepackage{luatexja-fontspec}
+% 英文字体
+\setmainfont[Ligatures={Common,TeX}]{Tex Gyre Termes}
+\setsansfont[Ligatures={Common,TeX}]{Droid Sans}
+\setmonofont{CMU Typewriter Text}
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+% 中文字体
+\setmainjfont[BoldFont={AdobeHeitiStd-Regular},
+              ItalicFont={AdobeKaitiStd-Regular}]
+             {AdobeSongStd-Light}
+\setsansjfont{AdobeKaitiStd-Regular}
+\defaultjfontfeatures{JFM=kaiming}
+\end{latexcode*}
+\end{description}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{算法环境 --- algorithm2e}
+\begin{description}
+    \item[宏包] algorithm2e
+    \item[文档] \mint{bash}|texdoc algorithm2e| \pause
+    \item[示例] \hfill\\
+\begin{latexcode*}{fontsize=\tiny}
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{this text}
+\KwResult{how to write algorithm with \LaTeX2e }
+initialization\;
+\While{not at end of this document}{
+read current\;
+\eIf{understand}{
+go to next section\;
+current section becomes this one\;
+}{
+go back to the beginning of current section\;
+}
+}
+\caption{How to write algorithms}
+\end{algorithm}
+\end{latexcode*}
+\end{description}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{算法环境 --- algorithm2e}
+\scalebox{0.65}{
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{this text}
+\KwResult{how to write algorithm with \LaTeX2e }
+initialization\;
+\While{not at end of this document}{
+read current\;
+\eIf{understand}{
+go to next section\;
+current section becomes this one\;
+}{
+go back to the beginning of current section\;
+}
+}
+\caption{How to write algorithms}
+\end{algorithm}    
+}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{定理证明环境 --- ntheorem}
+\begin{description}
+    \item[宏包] ntheorem
+    \item[文档] \mint{bash}|texdoc ntheorem|
+    \item[注释] 使用时，需仔细阅读文档，避免宏包冲突。 \pause
+    \item[示例] \hfill\\
+\begin{latexcode*}{fontsize=\tiny}
+\usepackage[amsmath,amsthm,thmmarks,hyperref,thref]{ntheorem}
+\theoremstyle{definition}
+\newtheorem{definition}{定义}[chapter]
+\theoremstyle{plain}
+\newtheorem{theorem}{定理}[chapter]
+
+\begin{definition}
+This is a definition.
+\end{definition}
+\begin{theorem}
+This is a theorem.
+\end{theorem}
+\end{latexcode*}
+\end{description}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{定理证明环境 --- ntheorem}
+\begin{definition}
+This is a definition.
+\end{definition}
+\begin{theorem}
+This is a theorem.
+\end{theorem}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{代码高亮 --- minted}
+\begin{description}
+    \item[宏包] minted
+    \item[文档] \mint{bash}|texdoc minted| 
+    \item[注释] 需安装Python和Pygments；编译文档时需要加上参数\verb+-shell-escape+。如：
+    \mint{bash}|lualatex -shell-escape input_file|\pause
+    \item[示例] \hfill\\
+\begin{latexcode*}{fontsize=\tiny}
+\begin{minted}[mathescape,linenos,frame=lines]{csharp}
+  string title = "This is a Unicode π in the sky"
+  /*
+  Defined as $\pi=\lim_{n\to\infty}\frac{P_n}{d}$ where $P$ is the perimeter
+  of an $n$-sided regular polygon circumscribing a
+  circle of diameter $d$.
+  */
+  const double pi = 3.1415926535
+\end{minted}
+\end{latexcode*}
+\end{description}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{代码高亮 --- minted}
+\begin{minted}[mathescape,linenos,frame=lines]{csharp}
+  string title = "This is a Unicode π in the sky"
+  /*
+  Defined as $\pi=\lim_{n\to\infty}\frac{P_n}{d}$ where $P$ is the perimeter
+  of an $n$-sided regular polygon circumscribing a
+  circle of diameter $d$.
+  */
+  const double pi = 3.1415926535
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{图片相关宏包}
+\begin{center}
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
+\multicolumn{1}{|c|}{\textbf{宏包}} & \multicolumn{1}{c|}{\textbf{作用}} & \multicolumn{1}{c|}{\textbf{注释}} \\ \hline
+subcaption & 插入多幅并列的图片 & 不要使用subfigure，subfig这样被废弃的宏包 \\ \hline
+overpic 　& 在图上层叠其他内容 & \\ \hline
+xypic     & 绘制简单流程图 & \\ \hline
+tikz/pgf  & 更高级的绘制图片宏包 & 学习难度较大，但绘图质量高 \\ \hline
+\end{tabularx}
+\end{center}
+
+\pause
+\begin{block}{提醒}
+插入图片时，请尽量使用矢量图（pdf,eps等格式）。Matlab，matplotlib(Python)，R，visio等绘图工具都有相应导出设置。
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{表格相关宏包}
+\begin{center}
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
+\multicolumn{1}{|c|}{\textbf{宏包}} & \multicolumn{1}{c|}{\textbf{作用}} & \multicolumn{1}{c|}{\textbf{注释}} \\ \hline
+tabularx & 更方便调整表格列距 &  \multirow{2}{*}{\tabincell{l}{宏包ltxtable\\合并了这两个功能}} \\ \cline{1-2}
+longtable & 插入超长（跨页）表格 & \\ \hline
+slashbox  & 在表格中插入斜线 & \\ \hline
+excel2latex  & 将excel表格转成latex代码 & 这不是宏包，是一个工具\\ \hline
+\end{tabularx}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{其他常用宏包}
+\begin{center}
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
+\multicolumn{1}{|c|}{\textbf{宏包}} & \multicolumn{1}{c|}{\textbf{作用}} \\ \hline
+enumitem & 自定义列表环境的式样 \\ \hline
+fancyhdr & 定义页眉页脚 \\ \hline
+fancynum & 将大数每三位断开 \\ \hline
+natbib & 定义参考文献格式 \\ \hline
+zhnumber & 生成中文数字 \\ \hline
+\end{tabularx}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\centering
+\Huge{谢\hspace{1em}谢!}
+\end{frame}
+
+\end{document}
