@@ -24,9 +24,9 @@ Or if you prefer, you can download these templates separately:
 | [hustreport][hustreport-url] | [.zip][hustreport-zip] &#124; [.tar.gz][hustreport-tar] | [hustreport.pdf][hustreport-doc] | [hustreport-zh-example.pdf][hustreport-zh-example] &#124; [hustreport-en-example.pdf][hustreport-en-example] |
 | [hustbeamer][hustbeamer-url] | [.zip][hustbeamer-zip] &#124; [.tar.gz][hustbeamer-tar] | [hustbeamer.pdf][hustbeamer-doc] | [hustbeamer-example.pdf][hustbeamer-example] |
 
- [hustthesis-url]: https://xu-cheng.github.io/hustthesis
- [hustreport-url]: https://xu-cheng.github.io/hustreport
- [hustbeamer-url]: https://xu-cheng.github.io/hustbeamer
+ [hustthesis-url]: http://xu-cheng.github.io/hustthesis
+ [hustreport-url]: http://xu-cheng.github.io/hustreport
+ [hustbeamer-url]: http://xu-cheng.github.io/hustbeamer
  [hustthesis-zip]: https://github.com/xu-cheng/hustthesis/zipball/master
  [hustthesis-tar]: https://github.com/xu-cheng/hustthesis/tarball/master
  [hustreport-zip]: https://github.com/xu-cheng/hustreport/zipball/master
