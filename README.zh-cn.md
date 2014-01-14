@@ -46,7 +46,7 @@ git clone --recursive https://github.com/xu-cheng/hust-latex-template.git
 
 本项目使用LPPL v1.3协议，请任意使用。
 ```
-Copyright (C) 2013 by Xu Cheng <xucheng@me.com>
+Copyright (C) 2013-2014 by Xu Cheng <xucheng@me.com>
 
 This work may be distributed and/or modified under the
 conditions of the LaTeX Project Public License, either version 1.3
