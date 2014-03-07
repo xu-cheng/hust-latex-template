@@ -7,3 +7,6 @@
 [submodule "hustthesis"]
 	path = hustthesis
 	url = git@github.com:xu-cheng/hustthesis.git
+[submodule "husttrans"]
+	path = husttrans
+	url = git@github.com:xu-cheng/husttrans.git
