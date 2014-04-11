@@ -1,0 +1,745 @@
+
+\documentclass[langauge=chinese]{hustbeamer}
+
+\usepackage{metalogo,tabu}
+\usepackage{minted}
+\usepackage{framed}
+\usepackage{tabularx}
+
+\definecolor{minted_bg}{rgb}{0.95,0.95,0.95}
+\newminted{latex}{bgcolor=minted_bg,frame=lines,fontsize=\footnotesize}
+\newminted{bash}{bgcolor=minted_bg,frame=lines,fontsize=\footnotesize}
+
+
+\graphicspath{ {.}{./fig/} }
+
+\title{\LaTeX{}使用介绍}
+\author{许铖}
+\institute{\email{xucheng@me.com}}
+\date{2014}{4}{11}
+
+\begin{document}
+
+\maketitle
+\PrintTOC
+
+\section{\LaTeX{}简介}
+
+\begin{frame}{\secname}{\textrm{\TeX/\LaTeX}历史}
+\textrm{\TeX} 是一种用于生成高质量文档的软件，由斯坦福大学的高德纳教授开发。开发的动机是当时粗糙的排版水平已经影响到他的巨著《计算机程序设计艺术》的印刷质量。
+
+\pause
+原始的\textrm{\TeX}指令较为简单，通过组合可以实现更为高级的排版行为，不过这也导致对使用者的编程能力要求较高。Laslie Lamport在\textrm{\TeX}系统的基础上封装出了更加便于使用的\textrm{\LaTeX}，其内含的大量语句以足够完成一定程度的文档排版。
+\end{frame}
+
+\begin{frame}{\secname}{\textrm{\TeX}几个引擎之间的关系}
+在原始的\textrm{\TeX}（我们一般称之为\textrm{plain-\TeX}）引擎基础上出现了很多新的引擎。如下列举了常见的几个引擎及其关系。
+
+\pause
+\begin{center}
+\everyrow{\pause}
+\begin{tabular}{cc}
+引擎 & 扩展 \\ \hline
+\textrm{\TeX} & \textrm{\LaTeX} \\
+\textrm{pdf\TeX} & \textrm{pdf\LaTeX} \\
+\textrm{\XeTeX} & \textrm{\XeLaTeX} \\
+\textrm{\LuaTeX} & \textrm{\LuaLaTeX} 
+\end{tabular}
+\end{center}
+
+\pause
+除此之外，我们通常还会用到\textrm{Bib\TeX}，\textrm{makeindex}等引擎。
+\end{frame}
+
+\begin{frame}{\secname}{\textrm{\LaTeX}优缺点}
+\begin{columns}
+\begin{column}[t]{0.5\textwidth}
+\center{\HEI 优点}
+\begin{itemize}[<+->]
+    \item 提供专业的版面设计。
+    \item 可以方便的排版数学公式。
+    \item 格式与内容分离。
+    \item 丰富的宏包扩展。
+\end{itemize}
+\end{column}
+~
+\begin{column}[t]{0.5\textwidth}
+\center{\HEI 缺点}
+\begin{itemize}[<+->]
+    \item 非所见即所得，初始学习成本高。
+    \item 很难用\textrm{\LaTeX}来写结构不明、组织无序的文档。
+    \item 设计一个全新的版面还是十分困难的。
+    \item \textrm{\LaTeX}宏包冲突问题很严重。
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{\secname}{\textrm{\LaTeX}环境安装}
+\begin{description}
+    \item[TeXLive] \url{http://tug.org/texlive/} (Windows \& Linux)
+    \item[MacTeX] \url{http://tug.org/mactex/} (OS X only)
+    \item[MikTeX] \url{http://miktex.org/} (Windows only)
+\end{description}
+\parbox[t][1cm][t]{\textwidth}{
+\onslide*<2>{
+    \begin{block}{}
+        \textbf{不建议安装CTeX。}
+    \end{block}
+}
+\onslide*<3>{
+    \begin{block}{}
+        Windows下安装TeXLive中，如果出现中途程序崩溃的情况，可以通过先安装Perl来解决。
+    \end{block}
+}
+}
+\end{frame}
+
+\begin{frame}{\secname}{\textrm{\LaTeX}资料}
+\begin{enumerate}
+    \item 《一份不太简短的\textrm{\LaTeXe}介绍》\mint{bash}|texdoc lshort-zh|
+    \item \url{http://en.wikibooks.org/wiki/LaTeX/}
+    \item \url{http://tex.stackexchange.com/} 和 Google
+\end{enumerate}
+\pause
+\begin{block}{texdoc命令}
+    texdoc命令用于查看\textrm{\LaTeX}文档，使用方法如下：\\*
+    \hspace{.8em}\texttt{texdoc\hspace{.8em}\emph{<package name>}}
+\end{block}
+\end{frame}
+
+\section{\LaTeX{}使用简述}
+
+\begin{frame}{\secname}{\textrm{\LaTeX}源文件}
+\begin{description}
+    \item[\texttt{.tex}] \textrm{\LaTeX}源文件
+    \item[\texttt{.cls}] \textrm{\LaTeX}模板类文件
+    \item[\texttt{.sty}] \textrm{\LaTeX}宏包文件
+    \item[\texttt{.bib}] \textrm{Bib\TeX}参考文献索引
+\end{description}
+\end{frame}
+
+\begin{frame}{\secname}{一般编译顺序}
+\onslide<3->{\texttt{lualatex\hspace{.8em}\emph{<file name>}}} \\
+\onslide<3->{\texttt{bibtex\hspace{.8em}\emph{<file name>}} / \texttt{makeindex\hspace{.8em}\emph{<$\dots$>}}} \\
+\onslide<2->{\texttt{lualatex\hspace{.8em}\emph{<file name>}}} \\
+\onslide<1->{\texttt{lualatex\hspace{.8em}\emph{<file name>}}} \\
+\onslide<1->{生成文档，需运行一次\textrm{\LaTeX}。} \\
+\onslide<2->{生成目录和交叉引用，需运行两次\textrm{\LaTeX}。} \\
+\onslide<3->{生成参考文献或索引，需运行三次\textrm{\LaTeX}。}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{编译 --- latexmk}
+
+\begin{bashcode}
+$ latexmk -bibtex -lualatex -shell-escape <file name>
+$ latexmk -c
+\end{bashcode}
+
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{语法基础 --- 空格和空行}
+\textrm{\LaTeX}将超过一个的连续空格只会被认为是一个空格，同时对单个回车忽略不计。
+换行使用一个或多个连续空行表示换行，或者你可以使用\textbackslash{}\textbackslash{}来强制换行。
+
+\begin{columns}
+\begin{column}[b]{0.5\textwidth}
+\begin{latexcode}
+It does not matter whether
+you enter one or several 
+spaces        after a word.
+
+An empty line starts a new
+paragraph.
+\end{latexcode}
+\end{column}
+~
+\begin{column}[b]{0.5\textwidth}
+\footnotesize\setlength{\parindent}{2em}
+\begin{framed}
+It does not matter whether
+you enter one or several 
+spaces        after a word.
+
+An empty line starts a new
+paragraph.
+\end{framed}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{语法基础 --- 特殊字符}
+\onslide<2->{特殊字符字符通过插入反斜杠来获得。}\onslide<3->{但有一个例外：\textbackslash}
+\begin{columns}
+\begin{column}[b]{0.5\textwidth}
+\onslide<2->{
+\footnotesize\ttfamily
+\begin{framed}
+\textbackslash\# \textbackslash\$ \textbackslash\% \textbackslash\^{} \textbackslash\& \textbackslash\_ \textbackslash\{ \textbackslash\} \textbackslash\~{} \onslide<3->{\textbackslash{}textbackslash}
+\end{framed}
+}
+\end{column}
+~
+\onslide<1->{
+\begin{column}[b]{0.5\textwidth}
+\footnotesize\setlength{\parindent}{2em}
+\begin{framed}
+\# \$ \% \^{} \& \_ \{ \} \~{} \textbackslash
+\end{framed}
+\end{column}
+}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{语法基础 --- 命令与环境}
+命令示例
+\begin{latexcode}
+\command \command{} \command{arg} 
+\command{arg1}{arg2}
+\command[opt arg]{arg}
+\end{latexcode}
+
+\pause 环境示例
+\begin{latexcode}
+\begin{env}
+<content>
+\end{env}
+\end{latexcode}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{文件结构 --- 简单示例}
+\begin{latexcode}
+\documentclass{article}
+\begin{document}
+Small is beautiful.
+\end{document}
+\end{latexcode}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{文件结构 --- 稍复杂例子}
+\begin{latexcode}
+\documentclass[12pt,a4paper]{article}
+\usepackage{hyperref}
+\title{An Example}
+\author{Xu Cheng}
+\date{}
+\begin{document}
+\maketitle
+Equation~\ref{eq:1} is below:
+\begin{equation}
+ E = mc^2 \label{eq:1}
+\end{equation}
+\end{document}
+\end{latexcode}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{分层命令}
+如下命令用于分层。
+\begin{latexcode}
+\part{}
+\chapter{}
+\section{}
+\subsection{}
+\subsubsection{}
+\tableofcontents
+\end{latexcode}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{罗列环境}
+一共有三种罗列环境。
+\begin{columns}
+\begin{column}[b]{0.5\textwidth}
+\begin{latexcode}
+\begin{enumerate}
+    \item Item 1
+    \item Item 2
+\end{enumerate}
+\begin{itemize}
+    \item Item 1
+    \item Item 2
+\end{itemize}
+\begin{description}
+    \item[key] value
+\end{description}
+\end{latexcode}
+\end{column}
+~\pause
+\begin{column}[b]{0.5\textwidth}
+\footnotesize\setlength{\parindent}{2em}
+\begin{framed}
+\begin{enumerate}
+    \item Item 1
+    \item Item 2
+\end{enumerate}
+\begin{itemize}
+    \item Item 1
+    \item Item 2
+\end{itemize}
+\begin{description}
+    \item[key] value
+\end{description}
+\end{framed}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{}
+罗列环境可以相互嵌套。
+\begin{columns}
+\begin{column}[b]{0.5\textwidth}
+\begin{latexcode}
+\begin{enumerate}
+    \item Level 1
+    \begin{enumerate}
+        \item Level 2
+    \end{enumerate}
+\end{enumerate}
+\end{latexcode}
+\end{column}
+~
+\begin{column}[b]{0.5\textwidth}
+\footnotesize\setlength{\parindent}{2em}
+\begin{framed}
+\begin{enumerate}
+    \item Level 1
+    \begin{enumerate}
+        \item Level 2
+    \end{enumerate}
+\end{enumerate}
+\end{framed}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{字体切换}
+\footnotesize
+\begin{tabular}{@{}rl@{\qquad}rl@{}}
+\verb|\textrm{...}|        &      \textrm{roman}&
+\verb|\textsf{...}|        &      \textsf{sans serif}\\
+\verb|\texttt{...}|        &      \texttt{typewriter}\\[6pt]
+\verb|\textmd{...}|        &      \textmd{medium}&
+\verb|\textbf{...}|        &      \textbf{bold face}\\[6pt]
+\verb|\textup{...}|        &      \textup{upright}&
+\verb|\textit{...}|        &      \textit{italic}\\
+\verb|\textsl{...}|        &      \textsl{slanted}&
+\verb|\textsc{...}|        &      \textsc{small caps}\\[6pt]
+\verb|\emph{...}|          &            \emph{emphasized} &
+\verb|\textnormal{...}|    &      \textnormal{document font} 
+\end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{字体切换}
+\begin{tabular}{@{}ll}
+\footnotesize \verb|\tiny|         & \tiny        tiny font \\
+\footnotesize \verb|\scriptsize|   & \scriptsize  very small font\\
+\footnotesize \verb|\footnotesize| & \footnotesize  quite small font \\
+\footnotesize \verb|\small|        &  \small            small font \\
+\footnotesize \verb|\normalsize|   &  \normalsize  normal font \\
+\footnotesize \verb|\large|        &  \large       large font
+\end{tabular}%
+
+\begin{tabular}{ll@{}}
+\footnotesize \verb|\Large|        &  \Large       larger font \\[5pt]
+\footnotesize \verb|\LARGE|        &  \LARGE       very large font \\[5pt]
+\footnotesize \verb|\huge|         &  \huge        huge \\[5pt]
+\footnotesize \verb|\Huge|         &  \Huge        largest
+\end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{数学公式}
+\begin{columns}
+\begin{column}[b]{0.5\textwidth}
+\begin{latexcode}
+$\lim_{n \to \infty}
+\sum_{k=1}^n \frac{1}{k^2} 
+= \frac{\pi^2}{6}$
+
+$$
+\lim_{n \to \infty}
+\sum_{k=1}^n \frac{1}{k^2}
+= \frac{\pi^2}{6}
+$$
+\end{latexcode}
+\end{column}
+~
+\begin{column}[b]{0.5\textwidth}
+\footnotesize\setlength{\parindent}{2em}
+\begin{framed}
+$\lim_{n \to \infty}
+\sum_{k=1}^n \frac{1}{k^2} 
+= \frac{\pi^2}{6}$
+
+$$
+\lim_{n \to \infty}
+\sum_{k=1}^n \frac{1}{k^2}
+= \frac{\pi^2}{6}
+$$
+\end{framed}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{表格}
+\begin{footnotesize}
+\begin{latexcode}
+\usepackage{multirow}
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+label 2-1 & label 2-2 & label 3-3 & label 4-4 & label 5-5 \\
+\hline
+\multirow{2}{*}{Multi-Row} & \multicolumn{2}{|c|}{Multi-Column}
+& \multicolumn{2}{|c|}{\multirow{2}{*}{Multi-Row and Col}} \\
+\cline{2-3}
+& column-1 & column-2 & \multicolumn{2}{|c|}{}\\
+\hline
+\end{tabular}
+
+\end{latexcode}
+\end{footnotesize}
+\end{frame}
+
+\begin{frame}{\secname}{表格}
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+label 2-1 & label 2-2 & label 3-3 & label 4-4 & label 5-5 \\
+\hline
+\multirow{2}{*}{Multi-Row} & \multicolumn{2}{|c|}{Multi-Column} & \multicolumn{2}{|c|}{\multirow{2}{*}{Multi-Row and Col}} \\
+\cline{2-3}
+& column-1 & column-2 & \multicolumn{2}{|c|}{}\\
+\hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[fragile]{参考文献}
+使用\textrm{Bib\TeX}宏包可以方便的处理参考文献。\\
+\pause
+一般来说会将需要引用的文献按照特定语法保存为一个bib文件。
+\begin{latexcode}
+@BOOK{TEXGURU99,
+  AUTHOR        = "{\TeX}Guru",
+  TITLE         = "{\LaTeXe} 用户手册",
+  YEAR          = "1999"
+}
+\end{latexcode}
+\pause
+在需要时使用$\backslash$cite指令，如
+\mint[bgcolor=minted_bg]{latex} |\cite{TEXGURU99}|
+\pause
+在文章结束时使用$\backslash$bibliography来生成参考文献，如
+\mint[bgcolor=minted_bg]{latex} |\bibliography{refs}|
+\end{frame}
+
+\section{模板介绍}
+
+\begin{frame}[fragile]{\secname}{模板地址}
+这些是我制作的模板：
+
+\noindent\url{https://github.com/xu-cheng/hust-latex-template}
+
+\begin{description}
+\footnotesize
+    \item[hustthesis] \url{http://xu-cheng.github.io/hustthesis}
+    \item[hustreport] \url{http://xu-cheng.github.io/hustreport}
+    \item[hustbeamer] \url{http://xu-cheng.github.io/hustbeamer}
+    \item[husttrans] \url{http://xu-cheng.github.io/husttrans}
+    \item[itecreport] \url{http://xu-cheng.github.io/itecreport} 
+\end{description}
+
+\begin{block}{提醒}
+使用前请阅读模板文档及示例。
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{模板安装}
+
+{\Large 使用模板环境要求：}
+\begin{description}
+    \item[\LaTeX{}环境] 安装最新版本的 TeXLive（推荐）或 MiKTeX，\newline\textbf{不要}使用CTeX。确保所有宏包都更新至最新。
+    \item[字体] 安装如下中文字体：\\
+    \begin{itemize}
+        \item AdobeSongStd-Light
+        \item AdobeKaitiStd-Regular
+        \item AdobeHeitiStd-Regular
+        \item AdobeFangsongStd-Regular
+    \end{itemize}
+\end{description}
+
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{模板安装}
+安装模板使用如下命令：
+\mint[bgcolor=minted_bg]{bash} |make install|
+使用如下命令卸载：
+\mint[bgcolor=minted_bg]{bash} |make uninstall|
+
+对于没有安装Make的Windows用户，安装命令对于如下：
+\mint[bgcolor=minted_bg]{bat} |makewin32.bat install|
+卸载命令如下：
+\mint[bgcolor=minted_bg]{bat} |makewin32.bat uninstall|
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{模板使用}
+
+在源文件开头处选择加载文档类型，即可使用本模板，如：
+
+\begin{latexcode}
+\documentclass[options..]{hustthesis}
+\documentclass[options..]{hustreport}
+\documentclass[options..]{hustbeamer}
+\end{latexcode}
+
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{模板使用}
+
+加载模板时，可用选项如下：\\[1.2ex]
+
+\begin{tabularx}{.8\textwidth}{|l|X|}
+\hline
+\multicolumn{1}{|c|}{\textbf{模板}} & \multicolumn{1}{c|}{\textbf{可用选项}} \\ \hline
+hustthesis & language,format,degree \\ \hline
+hustreport & language,format,category \\ \hline
+hustbeamer & language \\ \hline
+\end{tabularx}
+
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{模板使用示例}
+\begin{latexcode*}{fontsize=\tiny}
+\documentclass[degree=phd,language=chinese]{hustthesis}
+
+\stuno{你的学号}
+\schoolcode{10487}
+\title{中文标题}{英文标题}
+\author{作者名}{作者名拼音}
+\major{专业中文}{专业英文}
+\supervisor{指导老师中文}{指导老师英文}
+\date{2013}{7}{1} % 答辩日期
+
+\zhabstract{中文摘要}
+\zhkeywords{中文关键字}
+\enabstract{英文摘要}
+\enkeywords{英文关键字}
+\end{latexcode*}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{模板使用示例}
+\begin{latexcode*}{fontsize=\tiny}
+\begin{document}
+\frontmatter
+\maketitle
+\makeabstract
+\tableofcontents
+\listoffigures
+\listoftables
+
+\mainmatter
+%% 正文
+
+\backmatter
+\begin{ack}
+%% 致谢
+\end{ack}
+\bibliography{参考文献.bib文件}
+\appendix
+\begin{publications}
+%% 发表过的论文列表
+\end{publications}
+%% 附录剩余部分
+\end{document}
+\end{latexcode*}
+\end{frame}
+
+\section{常用宏包介绍}
+
+\begin{frame}[fragile]{\secname}{中文字体 --- luatexja}
+\begin{description}
+    \item[宏包] luatexja
+    \item[文档] \mint{bash}|texdoc luatexja-zh| 
+    \item[注释] \LuaTeX{}下的宏包。如果你使用\XeLaTeX{}，有类似宏包xeCJK。\pause
+    \item[示例] \hfill\\
+\begin{latexcode*}{fontsize=\tiny}
+\usepackage{luatexja-fontspec}
+% 英文字体
+\setmainfont[Ligatures={Common,TeX}]{Tex Gyre Termes}
+\setsansfont[Ligatures={Common,TeX}]{Droid Sans}
+\setmonofont{CMU Typewriter Text}
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+% 中文字体
+\setmainjfont[BoldFont={AdobeHeitiStd-Regular},
+              ItalicFont={AdobeKaitiStd-Regular}]
+             {AdobeSongStd-Light}
+\setsansjfont{AdobeKaitiStd-Regular}
+\defaultjfontfeatures{JFM=kaiming}
+\end{latexcode*}
+\end{description}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{算法环境 --- algorithm2e}
+\begin{description}
+    \item[宏包] algorithm2e
+    \item[文档] \mint{bash}|texdoc algorithm2e| \pause
+    \item[示例] \hfill\\
+\begin{latexcode*}{fontsize=\tiny}
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{this text}
+\KwResult{how to write algorithm with \LaTeX2e }
+initialization\;
+\While{not at end of this document}{
+read current\;
+\eIf{understand}{
+go to next section\;
+current section becomes this one\;
+}{
+go back to the beginning of current section\;
+}
+}
+\caption{How to write algorithms}
+\end{algorithm}
+\end{latexcode*}
+\end{description}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{算法环境 --- algorithm2e}
+\scalebox{0.65}{
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{this text}
+\KwResult{how to write algorithm with \LaTeX2e }
+initialization\;
+\While{not at end of this document}{
+read current\;
+\eIf{understand}{
+go to next section\;
+current section becomes this one\;
+}{
+go back to the beginning of current section\;
+}
+}
+\caption{How to write algorithms}
+\end{algorithm}    
+}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{定理证明环境 --- ntheorem}
+\begin{description}
+    \item[宏包] ntheorem
+    \item[文档] \mint{bash}|texdoc ntheorem|
+    \item[注释] 使用时，需仔细阅读文档，避免宏包冲突。 \pause
+    \item[示例] \hfill\\
+\begin{latexcode*}{fontsize=\tiny}
+\usepackage[amsmath,amsthm,thmmarks,hyperref,thref]{ntheorem}
+\theoremstyle{definition}
+\newtheorem{definition}{定义}[chapter]
+\theoremstyle{plain}
+\newtheorem{theorem}{定理}[chapter]
+
+\begin{definition}
+This is a definition.
+\end{definition}
+\begin{theorem}
+This is a theorem.
+\end{theorem}
+\end{latexcode*}
+\end{description}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{定理证明环境 --- ntheorem}
+\begin{definition}
+This is a definition.
+\end{definition}
+\begin{theorem}
+This is a theorem.
+\end{theorem}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{代码高亮 --- minted}
+\begin{description}
+    \item[宏包] minted
+    \item[文档] \mint{bash}|texdoc minted| 
+    \item[注释] 需安装Python和Pygments；编译文档时需要加上参数\verb+-shell-escape+。如：
+    \mint{bash}|lualatex -shell-escape input_file|\pause
+    \item[示例] \hfill\\
+\begin{latexcode*}{fontsize=\tiny}
+\begin{minted}[mathescape,linenos,frame=lines]{csharp}
+  string title = "This is a Unicode π in the sky"
+  /*
+  Defined as $\pi=\lim_{n\to\infty}\frac{P_n}{d}$ where $P$ is the perimeter
+  of an $n$-sided regular polygon circumscribing a
+  circle of diameter $d$.
+  */
+  const double pi = 3.1415926535
+\end{minted}
+\end{latexcode*}
+\end{description}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{代码高亮 --- minted}
+\begin{minted}[mathescape,linenos,frame=lines]{csharp}
+  string title = "This is a Unicode π in the sky"
+  /*
+  Defined as $\pi=\lim_{n\to\infty}\frac{P_n}{d}$ where $P$ is the perimeter
+  of an $n$-sided regular polygon circumscribing a
+  circle of diameter $d$.
+  */
+  const double pi = 3.1415926535
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{图片相关宏包}
+\begin{center}
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
+\multicolumn{1}{|c|}{\textbf{宏包}} & \multicolumn{1}{c|}{\textbf{作用}} & \multicolumn{1}{c|}{\textbf{注释}} \\ \hline
+subcaption & 插入多幅并列的图片 & 不要使用subfigure，subfig这样被废弃的宏包 \\ \hline
+overpic 　& 在图上层叠其他内容 & \\ \hline
+xypic     & 绘制简单流程图 & \\ \hline
+tikz/pgf  & 更高级的绘制图片宏包 & 学习难度较大，但绘图质量高 \\ \hline
+\end{tabularx}
+\end{center}
+
+\pause
+\begin{block}{提醒}
+插入图片时，请尽量使用矢量图（pdf,eps等格式）。Matlab，matplotlib(Python)，R，visio等绘图工具都有相应导出设置。
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{表格相关宏包}
+\begin{center}
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
+\multicolumn{1}{|c|}{\textbf{宏包}} & \multicolumn{1}{c|}{\textbf{作用}} & \multicolumn{1}{c|}{\textbf{注释}} \\ \hline
+tabularx & 更方便调整表格列距 &  \multirow{2}{*}{\tabincell{l}{宏包ltxtable\\合并了这两个功能}} \\ \cline{1-2}
+longtable & 插入超长（跨页）表格 & \\ \hline
+slashbox  & 在表格中插入斜线 & \\ \hline
+excel2latex  & 将excel表格转成latex代码 & 这不是宏包，是一个工具\\ \hline
+\end{tabularx}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{\secname}{其他常用宏包}
+\begin{center}
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
+\multicolumn{1}{|c|}{\textbf{宏包}} & \multicolumn{1}{c|}{\textbf{作用}} \\ \hline
+enumitem & 自定义列表环境的式样 \\ \hline
+fancyhdr & 定义页眉页脚 \\ \hline
+fancynum & 将大数每三位断开 \\ \hline
+natbib & 定义参考文献格式 \\ \hline
+zhnumber & 生成中文数字 \\ \hline
+\end{tabularx}
+\end{center}
+\end{frame}
+ 
+
+\begin{frame}
+\centering
+\Huge{谢\hspace{1em}谢!}
+\end{frame}
+
+\end{document}
