@@ -1,6 +1,10 @@
 hust-latex-template
 ===================
 
+**该项目已经被移到[hust-latex](http://hust-latex.github.io)。**
+
+*****
+
 >   To see English version, [click me](https://github.com/xu-cheng/hust-latex-template/blob/master/README.md).
 
 [华中科技大学](http://www.hust.edu.cn) **非官方** LaTeX模板。这些模板为个人开发，如果因为使用这些模板蒙受了任何经济、学术上的损失，作者将不承担任何责任。

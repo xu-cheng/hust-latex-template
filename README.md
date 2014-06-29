@@ -1,6 +1,10 @@
 hust-latex-template
 ===================
 
+**The Project has been relocated to [hust-latex](http://hust-latex.github.io)**
+
+*****
+
 >   中文版[点击这里](https://github.com/xu-cheng/hust-latex-template/blob/master/README.zh-cn.md)。
 
 A Collection of Unofficial LaTeX Templates for [Huazhong University of Science and Technology](http://www.hust.edu.cn). These templates are distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
