@@ -1,7 +1,7 @@
 hust-latex-template
 ===================
 
-**The Project has been relocated to [hust-latex](http://hust-latex.github.io)**
+## **The Project has been relocated to [hust-latex](http://hust-latex.github.io)**
 
 *****
 
