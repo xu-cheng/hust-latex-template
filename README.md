@@ -24,15 +24,11 @@ Or if you prefer, you can download these templates separately:
 
 | Template                     | Download                                          | Document                         | Example                                      |
 | ---------------------------- | ------------------------------------------------- | -------------------------------- | -------------------------------------------- |
-| [hustthesis][hustthesis-url] | [.zip][hustthesis-zip] &#124; [.tar.gz][hustthesis-tar] | [hustthesis.pdf][hustthesis-doc] | [hustthesis-zh-example.pdf][hustthesis-zh-example] &#124; [hustthesis-en-example.pdf][hustthesis-en-example] |
-| [hustreport][hustreport-url] | [.zip][hustreport-zip] &#124; [.tar.gz][hustreport-tar] | [hustreport.pdf][hustreport-doc] | [hustreport-zh-example.pdf][hustreport-zh-example] &#124; [hustreport-en-example.pdf][hustreport-en-example] |
-| [hustbeamer][hustbeamer-url] | [.zip][hustbeamer-zip] &#124; [.tar.gz][hustbeamer-tar] | [hustbeamer.pdf][hustbeamer-doc] | [hustbeamer-example.pdf][hustbeamer-example] |
-| [husttrans][husttrans-url] | [.zip][husttrans-zip] &#124; [.tar.gz][husttrans-tar] | [husttrans.pdf][husttrans-doc] | [husttrans-example.pdf][husttrans-example] |
+| hustthesis | [.zip][hustthesis-zip] &#124; [.tar.gz][hustthesis-tar] | [hustthesis.pdf][hustthesis-doc] | [hustthesis-zh-example.pdf][hustthesis-zh-example] &#124; [hustthesis-en-example.pdf][hustthesis-en-example] |
+| hustreport | [.zip][hustreport-zip] &#124; [.tar.gz][hustreport-tar] | [hustreport.pdf][hustreport-doc] | [hustreport-zh-example.pdf][hustreport-zh-example] &#124; [hustreport-en-example.pdf][hustreport-en-example] |
+| hustbeamer | [.zip][hustbeamer-zip] &#124; [.tar.gz][hustbeamer-tar] | [hustbeamer.pdf][hustbeamer-doc] | [hustbeamer-example.pdf][hustbeamer-example] |
+| husttrans | [.zip][husttrans-zip] &#124; [.tar.gz][husttrans-tar] | [husttrans.pdf][husttrans-doc] | [husttrans-example.pdf][husttrans-example] |
 
- [hustthesis-url]: http://xu-cheng.github.io/hustthesis
- [hustreport-url]: http://xu-cheng.github.io/hustreport
- [hustbeamer-url]: http://xu-cheng.github.io/hustbeamer
- [husttrans-url]: http://xu-cheng.github.io/husttrans
  [hustthesis-zip]: https://github.com/xu-cheng/hustthesis/zipball/master
  [hustthesis-tar]: https://github.com/xu-cheng/hustthesis/tarball/master
  [hustreport-zip]: https://github.com/xu-cheng/hustreport/zipball/master
