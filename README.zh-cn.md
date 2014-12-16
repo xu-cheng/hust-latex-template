@@ -1,7 +1,7 @@
 hust-latex-template
 ===================
 
-**该项目已经被移到[hust-latex](http://hust-latex.github.io)。**
+## **该项目已经被移到[hust-latex](http://hust-latex.github.io)。**
 
 *****
 
@@ -29,10 +29,7 @@ git clone --recursive https://github.com/xu-cheng/hust-latex-template.git
 | [hustbeamer][hustbeamer-url] | [.zip][hustbeamer-zip] &#124; [.tar.gz][hustbeamer-tar] | [hustbeamer.pdf][hustbeamer-doc] | [hustbeamer-example.pdf][hustbeamer-example] |
 | [husttrans][husttrans-url] | [.zip][husttrans-zip] &#124; [.tar.gz][husttrans-tar] | [husttrans.pdf][husttrans-doc] | [husttrans-example.pdf][husttrans-example] |
 
- [hustthesis-url]: http://xu-cheng.github.io/hustthesis
- [hustreport-url]: http://xu-cheng.github.io/hustreport
- [hustbeamer-url]: http://xu-cheng.github.io/hustbeamer
- [husttrans-url]: http://xu-cheng.github.io/husttrans
+
  [hustthesis-zip]: https://github.com/xu-cheng/hustthesis/zipball/master
  [hustthesis-tar]: https://github.com/xu-cheng/hustthesis/tarball/master
  [hustreport-zip]: https://github.com/xu-cheng/hustreport/zipball/master
