@@ -24,10 +24,10 @@ git clone --recursive https://github.com/xu-cheng/hust-latex-template.git
 
 | 模板                         | 下载                                          | 文档                         | 示例                                      |
 | ---------------------------- | ------------------------------------------------- | -------------------------------- | -------------------------------------------- |
-| [hustthesis][hustthesis-url] | [.zip][hustthesis-zip] &#124; [.tar.gz][hustthesis-tar] | [hustthesis.pdf][hustthesis-doc] | [hustthesis-zh-example.pdf][hustthesis-zh-example] &#124; [hustthesis-en-example.pdf][hustthesis-en-example] |
-| [hustreport][hustreport-url] | [.zip][hustreport-zip] &#124; [.tar.gz][hustreport-tar] | [hustreport.pdf][hustreport-doc] | [hustreport-zh-example.pdf][hustreport-zh-example] &#124; [hustreport-en-example.pdf][hustreport-en-example] |
-| [hustbeamer][hustbeamer-url] | [.zip][hustbeamer-zip] &#124; [.tar.gz][hustbeamer-tar] | [hustbeamer.pdf][hustbeamer-doc] | [hustbeamer-example.pdf][hustbeamer-example] |
-| [husttrans][husttrans-url] | [.zip][husttrans-zip] &#124; [.tar.gz][husttrans-tar] | [husttrans.pdf][husttrans-doc] | [husttrans-example.pdf][husttrans-example] |
+| hustthesis | [.zip][hustthesis-zip] &#124; [.tar.gz][hustthesis-tar] | [hustthesis.pdf][hustthesis-doc] | [hustthesis-zh-example.pdf][hustthesis-zh-example] &#124; [hustthesis-en-example.pdf][hustthesis-en-example] |
+| hustreport | [.zip][hustreport-zip] &#124; [.tar.gz][hustreport-tar] | [hustreport.pdf][hustreport-doc] | [hustreport-zh-example.pdf][hustreport-zh-example] &#124; [hustreport-en-example.pdf][hustreport-en-example] |
+| hustbeamer | [.zip][hustbeamer-zip] &#124; [.tar.gz][hustbeamer-tar] | [hustbeamer.pdf][hustbeamer-doc] | [hustbeamer-example.pdf][hustbeamer-example] |
+| husttrans | [.zip][husttrans-zip] &#124; [.tar.gz][husttrans-tar] | [husttrans.pdf][husttrans-doc] | [husttrans-example.pdf][husttrans-example] |
 
 
  [hustthesis-zip]: https://github.com/xu-cheng/hustthesis/zipball/master
